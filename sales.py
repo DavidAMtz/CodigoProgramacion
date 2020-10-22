@@ -19,3 +19,21 @@ class sales:
     fisicalSales.setter
     def fisicalSales(self, valor):
         self.__fisicalSales =  valor
+
+    def agregar(self):
+        archivo=open("sales.txt", "w")
+        archivo.write(f" {self.digitalSales} " + "\n")
+        archivo.write(f" {self.fisicalSales} " + "\n")
+        archivo.close()
+
+    def leerNumerosSales(self):
+        archivo=open("sales.txt", "r")
+        sumaSales = 0
+        puntosSales = 0
+        lineaSales = archivo.readline()
+        while (lineaSales):
+            sumaSales = sumaSales + int(lineaSales)
+            lineaSales = archivo.readline()
+        puntosSales = (sumaSales/100)
+        print(puntosSales)
+        archivo.close()
